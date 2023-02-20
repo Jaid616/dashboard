@@ -50,14 +50,14 @@ const Login = () => {
     try {
 
      await axios.post(`${BASE_URL}/api/user/login`,
-                      {
-     withCredentials: true,
-     }
        {
        
         email: inputValue.email,
         password: inputValue.password,
-      });
+      },
+                       {
+     withCredentials: true,
+     });
       
 
       dispatch({ type: "USER", payload: true });
