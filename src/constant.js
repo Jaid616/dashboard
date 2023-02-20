@@ -1,0 +1,1 @@
+export const BASE_URL = "https://api-dashboard-com.onrender.com"
