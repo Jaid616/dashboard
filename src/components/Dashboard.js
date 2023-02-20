@@ -42,10 +42,27 @@ const Dashboard = () => {
   });
   const histroy = useNavigate();
   const sendRequest = async () => {
+    const config = {
+
+            headers:{
+
+                Accept: 'application/json',
+
+                'Content-Type': 'application/json',
+
+            },
+
+            mode:'cors',
+
+            credentials:'include',
+
+            withCredentials:true
+
+        }
     try {
-      const res = await axios.get(`${BASE_URL}/dashboard`, {
-        withCredentials: true,
-      });
+      const res = await axios.get(`${BASE_URL}/dashboard`,config)
+        
+
       let data = await res.data;
        console.log(data)
       if(data){
