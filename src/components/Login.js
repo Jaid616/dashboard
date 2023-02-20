@@ -49,11 +49,16 @@ const Login = () => {
   const sendRequest = async () => {
     try {
 
-     await axios.post(`${BASE_URL}/api/user/login`, {
+     await axios.post(`${BASE_URL}/api/user/login`,
+                      {
+     withCredentials: true,
+     }
+       {
        
         email: inputValue.email,
         password: inputValue.password,
       });
+      
 
       dispatch({ type: "USER", payload: true });
       histroy("/dashboard");
