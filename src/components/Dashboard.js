@@ -64,7 +64,7 @@ const Dashboard = () => {
         
 
       let data = await res.data;
-       console.log(data)
+       
       if(data){
         setuser(data);
       setloading(false);
@@ -73,8 +73,8 @@ const Dashboard = () => {
       dispatch({ type: "USER", payload: true });
     } catch (err) {
       dispatch({ type: "USER", payload: false });
-      console.log(err)
-      // histroy("/login");
+      
+       histroy("/login");
     }
   };
 
