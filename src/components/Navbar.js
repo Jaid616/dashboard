@@ -142,17 +142,17 @@ function Navbar() {
                   aria-label="contacts"
                 >
                   <ListItem>
-                    <ListItemButton>
+                    <ListItemButton component= {NavLink} to ="/">
                       <ListItemIcon>
                         <HomeIcon />
                       </ListItemIcon>
-                      <ListItemText primary="Home"  component={NavLink}
-                        to="/"/>
+                      <ListItemText primary="Home"
+                      >
                     </ListItemButton>
                   </ListItem>
 
                   {state?<>
-                    <ListItem>
+                    <ListItem >
                     <ListItemButton>
                       <ListItemIcon>
                         <HomeIcon />
