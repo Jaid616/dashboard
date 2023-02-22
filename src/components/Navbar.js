@@ -6,6 +6,8 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import Stack from "@mui/material/Stack";
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import {
   Drawer,
   List,
@@ -26,6 +28,12 @@ function Navbar() {
   const ismobile = useMediaQuery("(min-width:600px)");
   const { state, dispatch } = useContext(UserContext);
   const [isopen, setisopen] = useState(false);
+
+
+  const closeNavbar = ()=>{
+    setisopen(false);
+
+  }
 
   return (
     <>
@@ -133,7 +141,7 @@ function Navbar() {
                 <List
                   sx={{
                     width: "100%",
-                    maxWidth: 200,
+                    maxWidth: 250,
                     bgcolor: "background.paper",
                     mt: 10,
                     ml: 2,
@@ -142,52 +150,42 @@ function Navbar() {
                   aria-label="contacts"
                 >
                   <ListItem>
-                    <ListItemButton component= {NavLink} to ="/">
-                      <ListItemIcon>
-                        <HomeIcon />
-                      </ListItemIcon>
+                    <ListItemButton component= {NavLink} to ="/" onClick={closeNavbar}>
+                      
                       <ListItemText primary="Home"
-                      >
+                      />
                     </ListItemButton>
                   </ListItem>
 
                   {state?<>
                     <ListItem >
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <HomeIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="Dashboard" component={NavLink}
-                        to="/dashboard" />
+                    <ListItemButton component={NavLink}
+                        to="/dashboard"  onClick={closeNavbar}>
+                      
+                      <ListItemText primary="Dashboard"  />
                     </ListItemButton>
                   </ListItem>
                   <ListItem>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <HomeIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="Logout" component={NavLink}
-                        to="/logout"/>
+                    <ListItemButton component={NavLink}
+                        to="/logout"  onClick={closeNavbar}>
+                      
+                      <ListItemText primary="Logout" />
                     </ListItemButton>
                   </ListItem>
                   
                   </>:<>
                   <ListItem>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <HomeIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="Login" component={NavLink}
-                        to="/login" />
+                    <ListItemButton  component={NavLink}
+                        to="/login"  onClick={closeNavbar}>
+                    
+                      <ListItemText primary="Login" />
                     </ListItemButton>
                   </ListItem>
                   <ListItem>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <HomeIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="Registration" component={NavLink}
-                        to="/registration" />
+                    <ListItemButton component={NavLink}
+                        to="/registration"  onClick={closeNavbar}>
+                      
+                      <ListItemText primary="Registration"  />
                     </ListItemButton>
                   </ListItem>
                   
@@ -195,12 +193,10 @@ function Navbar() {
                   
                   
                   <ListItem>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <HomeIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="Contact" component={NavLink}
-                        to="/contact" />
+                    <ListItemButton component={NavLink}
+                        to="/contact"  onClick={closeNavbar}>
+                     
+                      <ListItemText primary="Contact"  />
                     </ListItemButton>
                   </ListItem>
                 </List>
@@ -217,11 +213,11 @@ function Navbar() {
                     justifyContent="center"
                     alignItems="center"
                   >
-                    <IconButton>
-                      <HomeIcon fontSize="small" />
+                    <IconButton component = "a" href = "https://www.twitter.com/jaidnasim1">
+                      <TwitterIcon fontSize="small"  />
                     </IconButton>
-                    <IconButton>
-                      <HomeIcon fontSize="small" />
+                    <IconButton  component = "a" href = "https://www.facebook.com/jaid.nasim.39">
+                      <FacebookIcon fontSize="small" />
                     </IconButton>
                   </Stack>
                 </Stack>
